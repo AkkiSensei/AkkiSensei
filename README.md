@@ -2,7 +2,7 @@
 
 # Ritunjay Deo
 
-### I build AI-powered products with real engineering underneath: private, tested, correct by design.
+### I build private AI products and race-free systems where failure has consequences.
 
 Full-Stack · Android · Applied AI &nbsp;|&nbsp; MBA Tech (Computer Engineering), NMIMS MPSTME, Mumbai
 
@@ -11,58 +11,99 @@ Full-Stack · Android · Applied AI &nbsp;|&nbsp; MBA Tech (Computer Engineering
 
 </div>
 
+I am an MBA Tech Computer Engineering student at NMIMS MPSTME, Mumbai. I engineer software for domains where failure carries real operational stakes, from emergency hospital dispatch to privacy-preserving computer vision. My work is backed by 1,270+ verified tests and checks, and placed in the top 45 of 100,000+ teams in the Adobe University Hackathon 2026.
+
 ---
 
 ## At a glance
 
-> **Hackathon Honors:** Adobe University Hackathon 2026 (Round 4 of 5, Top 45 of 100,000+ teams) · TechForge 2026 Hackathon
+> **Hackathon Recognition:** Adobe University Hackathon 2026 (Round 4 of 5, Top 45 of 100,000+ teams) · TechForge 2026 Hackathon
 
-| 4 shipped projects | 1,270+ tests & verification checks | 0 video frames leave device |
+| 4 shipped systems | 1,270+ tests and checks | 0 video frames leave your device |
 |:---:|:---:|:---:|
-| Web · Android · Agentic | Skillo 417 · BedLink 464 · Audit 335 · MADVerse 60 | Client-side Web Workers + ONNX Runtime Web |
+| Full-stack web, Android, and agentic tools | Verified across runners: Skillo 417, BedLink 464, Audit 335, MADVerse 60 | In-browser CV via Web Workers and ONNX Runtime |
 
 ---
 
 ## Featured projects
 
-### 🤖 [Skillo AI](https://github.com/sylbornfurtado19/Skillo): technical interview simulator that grades what you say *and* how you present it
-*Collaborative build (Lead Vision & Evaluation Engineering).*
+### 🤖 [Skillo AI](https://github.com/sylbornfurtado19/Skillo): An interview simulator that reads composure without your face reaching a server
+*Team project with Sylborn Furtado and Yug Dhaigude.*
 
 `Next.js 16` `TypeScript` `Supabase` `Zod` `Jest` `Playwright` `Web Workers` `ONNX Runtime Web`
 
-- **10 Core Research Engines:** 5 AI reasoning & memory engines (Prometheus-2 rubric & SUQ grader, LATS/MCTS adaptive interviewer, GraphRAG skill-gap mapping, Reflexion memory coach, SimPO FAANG comparator) + 5 vision, audio & document engines (LayoutLMv3 document AI, L2CS-Net gaze, HopeNet head pose, AffectNet composure, SyncNet AV sync)
-- **Private by default:** zero-copy frame processing via transferable `ImageBitmap` in dedicated Web Workers with OffscreenCanvas and ONNX Runtime Web; 0 raw video frames or audio recordings leave the device (only extracted numerical telemetry and text answers are sent for scoring)
-- **Test coverage:** 417 automated tests passing across 54 test suites
+- **The problem:** Technical interview platforms stream webcam video and microphone audio to remote servers, creating latency and biometric privacy risks.
+- **What was built:** Zero-copy in-browser computer vision. The client transfers raw video frames as transferable `ImageBitmap` objects directly to dedicated Web Workers, executing MediaPipe landmark extraction and ONNX Runtime Web off the main thread with zero frame-dropping jank and zero raw video uploads.
+- **Proof:** 417 automated tests passing across 54 test suites.
 
-### 🔍 [Brand AI-Readiness Audit](https://github.com/AkkiSensei/brand-ai-readiness-audit): agent skill that audits web properties for AI discoverability
-*Evaluates brand URLs against what AI search engines and crawler agents can ingest.* · **Adobe University Hackathon 2026: Round 4 of 5, top 45 of 100,000+ teams**
+<details>
+<summary>How it works</summary>
+
+- 10 Core Research Engines: 5 reasoning and memory engines (Prometheus-2 rubric grader with semantic uncertainty quantification, LATS/MCTS adaptive branching interviewer, GraphRAG skill-gap mapping, Reflexion memory coach, SimPO FAANG comparator) and 5 vision, audio, and document engines (LayoutLMv3 document AI, L2CS-Net 3D gaze, HopeNet head pose, AffectNet composure, SyncNet audio-visual lip sync).
+- All facial landmarks, head pose angles, gaze vectors, and audio energy metrics are calculated locally on the client machine; only computed numeric telemetry and text transcripts are sent for scoring.
+</details>
+
+### 🔍 [Brand AI-Readiness Audit](https://github.com/AkkiSensei/brand-ai-readiness-audit): An auditor that tests whether AI search engines can read your site without calling an LLM
+*Adobe University Hackathon 2026: Round 4 of 5, Top 45 of 100,000+ teams*
 
 `Python` `Schema.org` `JSON Schema` `agentskills.io` `pytest`
 
-- **30 deterministic defect checks** spanning 4 finding families: 8 CR (Crawler & Rendering: CR-001..CR-008), 8 ER (Extraction & Content: ER-001..ER-008), 8 SF (Schema & Format: SF-001..SF-008), and 6 TC (Technical & Connectivity: TC-001..TC-006); no LLM calls in the audit path, fully reproducible output
-- **SSRF-hardened fetching:** DNS pinning, private-IP CIDR blocklist, and DNS rebinding protection with a strict 240 s bounded runtime budget
-- **Rigorous validation:** 335 automated pytest tests passing; validated against 10 of 11 site archetypes (SPAs, e-commerce, paywalls, hydration, bot challenges) and 4 adversarial chaos scenarios (zero-byte bodies, garbage DOMs, redirect loops, hostile TCP blackholes)
+- **The problem:** AI search agents (ChatGPT, Claude, Perplexity) fail on misconfigured SPAs, blocked robots.txt rules, and broken schemas, leaving brand content invisible to generative search.
+- **What I built:** An automated auditor that runs without LLM hallucinations. I built an SSRF-hardened HTTP engine with DNS pinning against rebinding attacks, RFC-1918 private-IP blocklists, and deterministic DOM and schema verification within a strict 240-second execution budget.
+- **Proof:** 335 automated pytest tests passing; validated across 10 of 11 site archetypes and 4 adversarial chaos scenarios.
 
-### 🎬 [MADVerse](https://github.com/AkkiSensei/Mobile-Application-Development-Project): Android movie discovery with explainable recommendations
+<details>
+<summary>How it works</summary>
+
+- 30 deterministic defect checks across 4 finding families: 8 CR (Crawler and Rendering: CR-001..CR-008), 8 ER (Extraction and Content: ER-001..ER-008), 8 SF (Schema and Format: SF-001..SF-008), and 6 TC (Technical and Connectivity: TC-001..TC-006).
+- Validated against 10 of 11 site archetypes (SPAs, e-commerce, paywalls, hydration, bot challenges) and 4 chaos scenarios (zero-byte bodies, garbage DOMs, redirect loops, hostile TCP blackholes).
+- No LLM calls in the audit path; every finding is reproducible and grounded in schema specifications.
+</details>
+
+### 🎬 [MADVerse](https://github.com/AkkiSensei/Mobile-Application-Development-Project): Android movie discovery that explains its recommendations instead of hiding behind a black box
 `Kotlin` `Jetpack Compose` `Material 3` `Hilt` `Room` `Retrofit` `Gemini` `TMDB`
 
-- **Transparent recommendation scoring:** deterministic 100-point match engine evaluating genre (30), mood (20), era (15), quality (15), language (10), and runtime (10), paired with contextual Gemini explanations and local Room database caching
-- **Modern Android architecture:** Clean Architecture + MVVM, Kotlin Coroutines, StateFlow, strict unidirectional data flow, and offline-first persistence
-- **Test coverage:** 60 automated unit tests covering domain models, view models, and recommendation logic with 100% pass rate
+- **The problem:** Most recommendation feeds lock users into opaque algorithms that cannot explain why a title was suggested or adjust when tastes change.
+- **What I built:** An auditable, deterministic 100-point scoring engine (genre 30, mood 20, era 15, quality 15, language 10, runtime 10) paired with contextual Gemini explanations and local Room persistence for offline discovery.
+- **Proof:** 60 automated unit tests passing across 7 suites with 100% success rate.
 
-### 🏥 [BedLink](https://github.com/AkkiSensei/T17-BedLink): real-time hospital bed coordination for emergency response
-*Prevents ER diversion, phone-tag delays, and bed double-booking during critical transit.* · **TechForge 2026 Hackathon** · [Live Demo](https://bedlink-one.vercel.app)
+<details>
+<summary>How it works</summary>
+
+- Built with Clean Architecture, MVVM, Kotlin Coroutines, and StateFlow for strict unidirectional data flow.
+- Deterministic stable tie-breaking on score ties (vote average -> vote count -> popularity -> movie ID).
+- Operates locally on cached catalog data when the device loses network connectivity.
+</details>
+
+### 🏥 [BedLink](https://github.com/AkkiSensei/T17-BedLink): Live hospital bed coordination where two ambulances can never book the same bed
+*TechForge 2026 Hackathon* · [Live Demo](https://bedlink-one.vercel.app)
 
 `Next.js 15` `TypeScript` `Supabase Realtime` `PostgreSQL` `Vitest` `PGlite` `Vercel`
 
-- **Double-booking impossible by design:** atomic bed reservations guaranteed by partial unique indexes at the PostgreSQL database layer
-- **Deterministic emergency dispatch:** multi-factor hospital ranking based on Haversine travel time, bed telemetry freshness, and facility load penalty
-- **Time-bound coordination:** 120-second authoritative hold countdown, role-scoped WebSocket channels, and automated cascading fallback upon expiration
-- **Field-ready mobile craft:** automatic Lite Mode for low-spec hardware (RAM <= 2GB, CPU <= 4 cores, or Save-Data connections), haptics (`navigator.vibrate`), and Screen Wake Lock · 464 verification checks passing across 11 verification suites
+- **The problem:** ER diversion and manual phone calls waste critical transit minutes, while concurrent ambulance dispatches risk double-booking the last available bed.
+- **What I built:** Database-level uniqueness over application-level retries. I enforced partial unique indexes in PostgreSQL (`WHERE status = 'held'`) so concurrent reservations physically cannot double-book a bed, coupled with a 120-second authoritative hold timer and automated fallback cascade.
+- **Proof:** 464 verification checks passing across 11 verification suites; live production app verified at [bedlink-one.vercel.app](https://bedlink-one.vercel.app).
+
+<details>
+<summary>How it works</summary>
+
+- Multi-factor dispatch ranking calculated from Haversine travel time, bed telemetry freshness, and hospital load penalties.
+- Role-scoped Supabase Realtime channels isolate nurse and dispatcher updates with zero cross-tenant event bleed.
+- Field-ready mobile performance: feature-detected Lite Mode for devices with RAM <= 2GB (`navigator.deviceMemory <= 2`), CPU <= 4 cores, or Save-Data modes; haptic feedback (`navigator.vibrate`); and Screen Wake Lock during active transit.
+</details>
 
 ### Also built
-- **[MedFlow](https://github.com/AkkiSensei/medflow):** hospital management backend in Java 17, Spring Boot, Spring Data JPA, Flyway, and H2.
-- **[Forge & Co](https://github.com/AkkiSensei/Forge-Co):** responsive D2C e-commerce storefront in React, TypeScript, Vite, and Tailwind CSS.
+- **[MedFlow](https://github.com/AkkiSensei/medflow):** Hospital management backend built with Java 17, Spring Boot, Spring Data JPA, Flyway, and H2.
+- **[Forge & Co](https://github.com/AkkiSensei/Forge-Co):** Responsive direct-to-consumer storefront built with React, TypeScript, Vite, and Tailwind CSS.
+
+---
+
+## Why you might hire me
+
+- **I verify systems before shipping:** I do not rely on manual smoke tests or happy-path assumptions. I build test suites that push domain models, race conditions, and error boundaries until they break. (1,270+ automated tests and verification checks across 4 projects, all passing 100%).
+- **I engineer for real failure modes:** I solve concurrency collisions, network drops, and malicious inputs at the system layer rather than patching symptoms in production. (PostgreSQL partial unique indexes preventing bed double-booking, DNS pinning blocking SSRF rebinding, and 4 chaos suites surviving adversarial blackholes).
+- **I ship under tight deadlines:** I translate complex specifications and research concepts into working software that deploys cleanly under hackathon and sprint pressure. (Adobe University Hackathon 2026 top 45 of 100,000+ teams, TechForge 2026 Hackathon, and live BedLink deployment on Vercel).
+- **I build private-by-default software:** I keep sensitive user data off third-party servers by running compute directly on client devices whenever hardware allows. (Skillo processes computer vision locally in Web Workers with zero video frames transmitted over the network).
 
 ---
 
@@ -71,19 +112,17 @@ Full-Stack · Android · Applied AI &nbsp;|&nbsp; MBA Tech (Computer Engineering
 | | |
 |---|---|
 | **Languages** | Kotlin · TypeScript · Python · JavaScript · Java |
-| **Web** | Next.js · React · Vite · Tailwind CSS |
+| **Web & Backend** | Next.js · React · Vite · Spring Boot · Tailwind CSS |
 | **Android** | Jetpack Compose · Hilt · Room · Retrofit · Material 3 |
-| **Data** | PostgreSQL · Supabase (Auth, Realtime) · SQLite |
-| **AI** | Gemini · Claude · OpenAI · Agentic Workflows · RAG · MCTS |
-| **Quality & DevOps** | Vitest · Jest · Playwright · pytest · Gradle · Git · Vercel |
+| **Data & Storage** | PostgreSQL · Supabase (Auth, Realtime) · SQLite · Room |
+| **AI & Vision** | Gemini · Claude · OpenAI · MediaPipe · ONNX Runtime Web |
+| **Testing & Quality** | Vitest · Jest · Playwright · pytest · Gradle · Git · Vercel |
 
 ---
 
-## What I care about
+## Let's connect
 
-- **Private by default AI:** Run inference on the client whenever hardware and model architecture allow it.
-- **Correctness at the lowest layer:** Eliminate race conditions with database constraints and transactions, not application-level retries.
-- **Research to production:** Translate academic papers into tested, gracefully degrading, production-ready software.
+If you are building systems that require rigorous engineering, race-free concurrency, or private-first AI, I would love to talk. Drop me an email at [ritunjay1201@gmail.com](mailto:ritunjay1201@gmail.com) or connect on [LinkedIn](https://www.linkedin.com/in/ritunjaydeo).
 
 ---
 
