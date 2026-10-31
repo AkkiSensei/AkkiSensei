@@ -11,7 +11,7 @@ Full-Stack · Android · Applied AI &nbsp;|&nbsp; MBA Tech (Computer Engineering
 
 </div>
 
-I am an MBA Tech Computer Engineering student at NMIMS MPSTME, Mumbai. I engineer software for domains where failure carries real operational stakes, from emergency hospital dispatch to privacy-preserving computer vision. My work is backed by 1,270+ verified tests and checks, and placed in the top 45 of 100,000+ teams in the Adobe University Hackathon 2026.
+I am an MBA Tech Computer Engineering student at NMIMS MPSTME, Mumbai. I engineer software for domains where failure carries real operational stakes, from emergency clinical triage and hospital bed dispatch to privacy-preserving computer vision. My work is backed by 1,630+ verified tests and checks, and placed in the top 45 of 100,000+ teams in the Adobe University Hackathon 2026.
 
 ---
 
@@ -19,9 +19,9 @@ I am an MBA Tech Computer Engineering student at NMIMS MPSTME, Mumbai. I enginee
 
 > **Hackathon Recognition:** Adobe University Hackathon 2026 (Round 4 of 5, Top 45 of 100,000+ teams) · TechForge 2026 Hackathon
 
-| 4 shipped systems | 1,270+ tests and checks | 0 video frames leave your device |
+| 5 shipped systems | 1,630+ tests and checks | 0 video frames leave your device |
 |:---:|:---:|:---:|
-| Full-stack web, Android, and agentic tools | Verified across runners: Skillo 417, BedLink 464, Audit 335, MADVerse 60 | In-browser CV via Web Workers and ONNX Runtime |
+| Full-stack web, Android, and agentic tools | Verified across runners: Skillo 417, TriageRAG 358, Audit 335, MADVerse 60, BedLink 464 | In-browser CV via Web Workers and ONNX Runtime |
 
 ---
 
@@ -41,6 +41,23 @@ I am an MBA Tech Computer Engineering student at NMIMS MPSTME, Mumbai. I enginee
 
 - 10 Core Research Engines: 5 reasoning and memory engines (Prometheus-2 rubric grader with semantic uncertainty quantification, LATS/MCTS adaptive branching interviewer, GraphRAG skill-gap mapping, Reflexion memory coach, SimPO FAANG comparator) and 5 vision, audio, and document engines (LayoutLMv3 document AI, L2CS-Net 3D gaze, HopeNet head pose, AffectNet composure, SyncNet audio-visual lip sync).
 - All facial landmarks, head pose angles, gaze vectors, and audio energy metrics are calculated locally on the client machine; only computed numeric telemetry and text transcripts are sent for scoring.
+</details>
+
+### 🩺 [TriageRAG](https://github.com/AkkiSensei/TriageRAG): Emergency triage decision support that never lets a language model make safety-critical decisions
+*Research prototype for clinical decision support.*
+
+`Python 3.11` `FastAPI` `React 18` `Vite` `TypeScript` `Pydantic` `BM25` `pytest`
+
+- **The problem:** Language models in clinical workflows can hallucinate lethal drug doses, overlook contraindications, or invent protocol steps when evaluating emergency patients.
+- **What I built:** A two-pass deterministic safety architecture. Dose calculations run on exact Decimal arithmetic with 10x magnitude tripwires, contraindication interlocks enforce an inviolable BLOCK with zero override code paths, and retrieved clinical protocol chunks require verbatim substring citations before any drafted step reaches a clinician.
+- **Proof:** 358 automated tests (322 pytest, 36 Vitest), 100% mutant kill score (52/52 code and rule mutants), and 100% pass rate across golden (65/65) and adversarial injection (19/19) suites.
+
+<details>
+<summary>How it works</summary>
+
+- Pass 1 Deterministic Engine: Evaluates NEWS2/PEWS physiological scoring, population rules, and fatal drug-drug interactions (such as Sildenafil and Nitrates) before protocol retrieval ever runs.
+- Pass 2 Machine Verification: Verifies proposed clinical orders against formulary dosage ceilings, approved administration routes, verbatim guideline chunk substrings, and prose drug leaks.
+- Cryptographic Audit Trail: Records every assessment input, rule trigger, clinician override attempt, and decision verdict in an append-only, SHA-256 hash-chained audit log.
 </details>
 
 ### 🔍 [Brand AI-Readiness Audit](https://github.com/AkkiSensei/brand-ai-readiness-audit): An auditor that tests whether AI search engines can read your site without calling an LLM
@@ -100,8 +117,8 @@ I am an MBA Tech Computer Engineering student at NMIMS MPSTME, Mumbai. I enginee
 
 ## Why you might hire me
 
-- **I verify systems before shipping:** I do not rely on manual smoke tests or happy-path assumptions. I build test suites that push domain models, race conditions, and error boundaries until they break. (1,270+ automated tests and verification checks across 4 projects, all passing 100%).
-- **I engineer for real failure modes:** I solve concurrency collisions, network drops, and malicious inputs at the system layer rather than patching symptoms in production. (PostgreSQL partial unique indexes preventing bed double-booking, DNS pinning blocking SSRF rebinding, and 4 chaos suites surviving adversarial blackholes).
+- **I verify systems before shipping:** I do not rely on manual smoke tests or happy-path assumptions. I build test suites that push domain models, race conditions, and error boundaries until they break. (1,630+ automated tests and verification checks across 5 projects, all passing 100%).
+- **I engineer for real failure modes:** I solve concurrency collisions, network drops, and malicious inputs at the system layer rather than patching symptoms in production. (PostgreSQL partial unique indexes preventing bed double-booking, absolute BLOCK drug interlocks with zero override paths, DNS pinning blocking SSRF rebinding, and 4 chaos suites surviving adversarial blackholes).
 - **I ship under tight deadlines:** I translate complex specifications and research concepts into working software that deploys cleanly under hackathon and sprint pressure. (Adobe University Hackathon 2026 top 45 of 100,000+ teams, TechForge 2026 Hackathon, and live BedLink deployment on Vercel).
 - **I build private-by-default software:** I keep sensitive user data off third-party servers by running compute directly on client devices whenever hardware allows. (Skillo processes computer vision locally in Web Workers with zero video frames transmitted over the network).
 
@@ -112,7 +129,7 @@ I am an MBA Tech Computer Engineering student at NMIMS MPSTME, Mumbai. I enginee
 | | |
 |---|---|
 | **Languages** | Kotlin · TypeScript · Python · JavaScript · Java |
-| **Web & Backend** | Next.js · React · Vite · Spring Boot · Tailwind CSS |
+| **Web & Backend** | Next.js · React · FastAPI · Vite · Spring Boot · Tailwind CSS |
 | **Android** | Jetpack Compose · Hilt · Room · Retrofit · Material 3 |
 | **Data & Storage** | PostgreSQL · Supabase (Auth, Realtime) · SQLite · Room |
 | **AI & Vision** | Gemini · Claude · OpenAI · MediaPipe · ONNX Runtime Web |
