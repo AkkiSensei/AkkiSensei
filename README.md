@@ -21,7 +21,7 @@ I am an MBA Tech Computer Engineering student at NMIMS MPSTME, Mumbai. I enginee
 
 | 5 shipped systems | 1,630+ tests and checks | 0 video frames leave your device |
 |:---:|:---:|:---:|
-| Full-stack web, Android, and agentic tools | Verified across runners: Skillo 417, TriageRAG 358, Audit 335, MADVerse 60, BedLink 464 | In-browser CV via Web Workers and ONNX Runtime |
+| Full-stack web, Android, and agentic tools | Verified across runners: Skillo 417, Audit 335, TriageRAG 358, MADVerse 60, BedLink 464 | In-browser CV via Web Workers and ONNX Runtime |
 
 ---
 
@@ -43,23 +43,6 @@ I am an MBA Tech Computer Engineering student at NMIMS MPSTME, Mumbai. I enginee
 - All facial landmarks, head pose angles, gaze vectors, and audio energy metrics are calculated locally on the client machine; only computed numeric telemetry and text transcripts are sent for scoring.
 </details>
 
-### 🩺 [TriageRAG](https://github.com/AkkiSensei/TriageRAG): Emergency triage decision support that never lets a language model make safety-critical decisions
-*Research prototype for clinical decision support.*
-
-`Python 3.11` `FastAPI` `React 18` `Vite` `TypeScript` `Pydantic` `BM25` `pytest`
-
-- **The problem:** Language models in clinical workflows can hallucinate lethal drug doses, overlook contraindications, or invent protocol steps when evaluating emergency patients.
-- **What I built:** A two-pass deterministic safety architecture. Dose calculations run on exact Decimal arithmetic with 10x magnitude tripwires, contraindication interlocks enforce an inviolable BLOCK with zero override code paths, and retrieved clinical protocol chunks require verbatim substring citations before any drafted step reaches a clinician.
-- **Proof:** 358 automated tests (322 pytest, 36 Vitest), 100% mutant kill score (52/52 code and rule mutants), and 100% pass rate across golden (65/65) and adversarial injection (19/19) suites.
-
-<details>
-<summary>How it works</summary>
-
-- Pass 1 Deterministic Engine: Evaluates NEWS2/PEWS physiological scoring, population rules, and fatal drug-drug interactions (such as Sildenafil and Nitrates) before protocol retrieval ever runs.
-- Pass 2 Machine Verification: Verifies proposed clinical orders against formulary dosage ceilings, approved administration routes, verbatim guideline chunk substrings, and prose drug leaks.
-- Cryptographic Audit Trail: Records every assessment input, rule trigger, clinician override attempt, and decision verdict in an append-only, SHA-256 hash-chained audit log.
-</details>
-
 ### 🔍 [Brand AI-Readiness Audit](https://github.com/AkkiSensei/brand-ai-readiness-audit): An auditor that tests whether AI search engines can read your site without calling an LLM
 *Adobe University Hackathon 2026: Round 4 of 5, Top 45 of 100,000+ teams*
 
@@ -75,6 +58,23 @@ I am an MBA Tech Computer Engineering student at NMIMS MPSTME, Mumbai. I enginee
 - 30 deterministic defect checks across 4 finding families: 8 CR (Crawler and Rendering: CR-001..CR-008), 8 ER (Extraction and Content: ER-001..ER-008), 8 SF (Schema and Format: SF-001..SF-008), and 6 TC (Technical and Connectivity: TC-001..TC-006).
 - Validated against 10 of 11 site archetypes (SPAs, e-commerce, paywalls, hydration, bot challenges) and 4 chaos scenarios (zero-byte bodies, garbage DOMs, redirect loops, hostile TCP blackholes).
 - No LLM calls in the audit path; every finding is reproducible and grounded in schema specifications.
+</details>
+
+### 🩺 [TriageRAG](https://github.com/AkkiSensei/TriageRAG): Emergency triage decision support that never lets a language model make safety-critical decisions
+*Research prototype for clinical decision support.*
+
+`Python 3.11` `FastAPI` `React 18` `Vite` `TypeScript` `Pydantic` `BM25` `pytest`
+
+- **The problem:** Language models in clinical workflows can hallucinate lethal drug doses, overlook contraindications, or invent protocol steps when evaluating emergency patients.
+- **What I built:** A two-pass deterministic safety architecture. Dose calculations run on exact Decimal arithmetic with 10x magnitude tripwires, contraindication interlocks enforce an inviolable BLOCK with zero override code paths, and retrieved clinical protocol chunks require verbatim substring citations before any drafted step reaches a clinician.
+- **Proof:** 358 automated tests (322 pytest, 36 Vitest), 100% mutant kill score (52/52 code and rule mutants), and 100% pass rate across golden (65/65) and adversarial injection (19/19) suites.
+
+<details>
+<summary>How it works</summary>
+
+- Pass 1 Deterministic Engine: Evaluates NEWS2/PEWS physiological scoring, population rules, and fatal drug-drug interactions (such as Sildenafil and Nitrates) before protocol retrieval ever runs.
+- Pass 2 Machine Verification: Verifies proposed clinical orders against formulary dosage ceilings, approved administration routes, verbatim guideline chunk substrings, and prose drug leaks.
+- Cryptographic Audit Trail: Records every assessment input, rule trigger, clinician override attempt, and decision verdict in an append-only, SHA-256 hash-chained audit log.
 </details>
 
 ### 🎬 [MADVerse](https://github.com/AkkiSensei/Mobile-Application-Development-Project): Android movie discovery that explains its recommendations instead of hiding behind a black box
